@@ -6,3 +6,6 @@
 
 /* COMPONENTS */
 @import url(components/MainPage.css);
+
+/* SERVICES */
+@import url(services/morpion.css);

@@ -1,12 +1,13 @@
 import type {ReactNode} from "react";
 
 interface MainPageProps {
+    name: string
     children: ReactNode
 }
 
-export const MainPage = ({children}: MainPageProps) => {
+export const MainPage = ({name, children}: MainPageProps) => {
     return (
-        <div className="main-page">
+        <div id={name + "-page"} className="main-page">
             {children}
         </div>
     )

@@ -11,9 +11,11 @@ export const Square = ({id, shapePlayer, changePlayer}: SquareProps) => {
     const [shape, setShape] = useState("")
 
     function clickOnSquare() {
-        setShape(shapePlayer)
-        changePlayer()
-        setEnable(true)
+        if (!enable) {
+            setShape(shapePlayer)
+            changePlayer()
+            setEnable(true)
+        }
     }
 
     return (

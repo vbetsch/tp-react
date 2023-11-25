@@ -20,18 +20,18 @@ export const Game = ({players, colNumber, rowNumber}: GameProps) => {
     }
 
     function generateGrid() {
-        const squaresCount = colNumber * rowNumber
-
         const squares = [];
         for (let row = 0; row < rowNumber; row++) {
             const rowItems = [];
             for (let col = 0; col < colNumber; col++) {
                 const index = row * colNumber + col;
-                if (index < squaresCount) {
-                    rowItems.push(<Square key={index} id={(index + 1).toString()} shapePlayer={players[indexPlayer].shape} changePlayer={nextPlayer}/>);
-                } else {
-                    rowItems.push(<div key={`empty-${col}`}>empty</div>);
-                }
+                rowItems.push(
+                    <Square
+                        key={index}
+                        id={(index + 1).toString()}
+                        shapePlayer={players[indexPlayer].shape}
+                        changePlayer={nextPlayer}
+                    />);
             }
             squares.push(<div className={"row"} key={row}>{rowItems}</div>);
         }
@@ -40,7 +40,7 @@ export const Game = ({players, colNumber, rowNumber}: GameProps) => {
 
     return (
         <div className="game">
-            <p>It is the turn of <strong>{players[indexPlayer].name}</strong></p>
+            <p>It is the turn of <strong>{players[indexPlayer].name}</strong> ({players[indexPlayer].shape})</p>
             <Board squares={generateGrid()}/>
         </div>
     );

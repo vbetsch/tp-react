@@ -18,14 +18,16 @@ export const MiniBlogPost = ({post}: MiniBlogPostProps) => {
         setComments(json)
     }
 
-    const showComments = () => {
+    const toggleDisplayComments = () => {
+        displayComments ? setDisplayComments(false) : setDisplayComments(true)
+    }
+
+    const toggleComments = () => {
         getComments()
             .catch(console.error)
             .finally(() => {
                 setLoading(false)
-                setDisplayComments(true)
-                console.log(`@vbetsch ||  -  || comments`)
-                console.log(comments)
+                toggleDisplayComments()
             })
     }
 
@@ -37,7 +39,7 @@ export const MiniBlogPost = ({post}: MiniBlogPostProps) => {
         <div className="post">
             <h3>{post.title}</h3>
             <p>{post.body}</p>
-            <button onClick={showComments}>Show comments</button>
+            <button className={"collapse-button"} onClick={toggleComments}>{displayComments ? "^" : "V"} Toggle comments</button>
             {displayComments && (
                 <div className="comments">
                     {(!loading && comments) ? comments.map((comment, key) => (

@@ -1,0 +1,4 @@
+#miniblog-page .posts {
+    height: 90%;
+    overflow-y: scroll;
+}

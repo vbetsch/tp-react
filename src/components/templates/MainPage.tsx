@@ -1,14 +1,17 @@
 import type {ReactNode} from "react";
 
 interface MainPageProps {
-    name: string
+    title: string
     children: ReactNode
 }
 
-export const MainPage = ({name, children}: MainPageProps) => {
+export const MainPage = ({title, children}: MainPageProps) => {
     return (
-        <div id={name + "-page"} className="main-page">
-            {children}
+        <div id={title.toLowerCase() + "-page"} className="main-page">
+            <h1>{title}</h1>
+            <div className="page-content">
+                {children}
+            </div>
         </div>
     )
 }

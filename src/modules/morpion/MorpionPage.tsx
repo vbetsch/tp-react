@@ -16,8 +16,7 @@ export const MorpionPage = () => {
     ]
 
     return (
-        <MainPage name={"morpion"}>
-            <h1>Morpion</h1>
+        <MainPage title={"Morpion"}>
             <MorpionGame colNumber={colsCount} rowNumber={rowsCount} players={players}/>
         </MainPage>
     )

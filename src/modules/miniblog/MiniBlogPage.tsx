@@ -1,15 +1,16 @@
 import {MainPage} from "../../components/templates/MainPage.tsx";
 import {useEffect, useState} from "react";
+import {MiniBlogPost} from "./MiniBlogPost.tsx";
 
 export const MiniBlogPage = () => {
     const [loading, setLoading] = useState(false)
-    const [repositories, setRepositories] = useState([])
+    const [posts, setPosts] = useState([])
 
     const getPosts = async () => {
         setLoading(true)
         const data = await fetch('https://jsonplaceholder.typicode.com/posts')
         const json = await data.json()
-        setRepositories(json)
+        setPosts(json)
     }
 
     useEffect(() => {
@@ -25,8 +26,8 @@ export const MiniBlogPage = () => {
     return (
         <MainPage title={"MiniBlog"}>
             <div className="posts">
-                {repositories.map((repo: MiniBlogPost, key) => (
-                    <p key={key}>{repo.title}</p>
+                {posts.map((post: MiniBlogPostType, key) => (
+                    <MiniBlogPost key={key} post={post}/>
                 ))}
             </div>
         </MainPage>

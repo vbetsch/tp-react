@@ -1,4 +1,15 @@
 #miniblog-page .posts {
     height: 90%;
+    width: 50%;
+    padding: 5%;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#miniblog-page .posts .post {
+    border: solid 1px var(--black);
+    padding: 15px;
+    border-radius: 25px;
 }

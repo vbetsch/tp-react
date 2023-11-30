@@ -6,6 +6,7 @@ export const HomePage = () => {
         <MainPage title={"Home"}>
             <Link to={"/morpion"}>Morpion</Link>
             <Link to={"/miniblog"}>MiniBlog</Link>
+            <Link to={"/usersettings"}>UserSettings</Link>
         </MainPage>
     )
 }

@@ -13,3 +13,8 @@
     padding: 15px;
     border-radius: 25px;
 }
+
+#miniblog-page .posts .post .comments {
+    height: 30vh;
+    overflow-y: scroll;
+}

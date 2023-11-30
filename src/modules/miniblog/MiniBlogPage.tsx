@@ -1,6 +1,7 @@
 import {MainPage} from "../../components/templates/MainPage.tsx";
 import {useEffect, useState} from "react";
 import {MiniBlogPost} from "./MiniBlogPost.tsx";
+import {MiniBlogPostType} from "./types/MiniBlogPostType.ts";
 
 export const MiniBlogPage = () => {
     const [loading, setLoading] = useState(false)

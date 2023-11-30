@@ -1,13 +1,19 @@
-import {createBrowserRouter, Navigate} from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import {MorpionPage} from "./modules/morpion/MorpionPage.tsx";
+import {HomePage} from "./components/HomePage.tsx";
+import {MiniBlogPage} from "./modules/miniblog/MiniBlogPage.tsx";
 
 export const Router = createBrowserRouter([
     {
         path: "",
-        element: <Navigate to="/morpion" replace={true} />
+        element: <HomePage/>
     },
     {
         path: "/morpion",
         element: <MorpionPage/>
+    },
+    {
+        path: "/miniblog",
+        element: <MiniBlogPage/>
     }
 ]);

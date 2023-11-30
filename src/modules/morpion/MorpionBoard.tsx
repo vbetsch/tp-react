@@ -4,7 +4,7 @@ interface BoardProps {
     squares: ReactElement<any, any>[]
 }
 
-export const Board = ({squares}: BoardProps) => {
+export const MorpionBoard = ({squares}: BoardProps) => {
     return (
         <div className="board">
             {squares}

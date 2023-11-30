@@ -7,7 +7,7 @@ export interface SquareProps {
     updateScore: (colPos: number, rowPos: number, shape: string) => void
 }
 
-export const Square = ({position, shapePlayer, changePlayer, updateScore}: SquareProps) => {
+export const MorpionSquare = ({position, shapePlayer, changePlayer, updateScore}: SquareProps) => {
     const [enable, setEnable] = useState(false)
     const [shape, setShape] = useState("")
 

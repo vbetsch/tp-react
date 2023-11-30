@@ -1,5 +1,5 @@
 import {MainPage} from "../../components/templates/MainPage.tsx";
-import {Game} from "./Game.tsx";
+import {MorpionGame} from "./MorpionGame.tsx";
 
 export const MorpionPage = () => {
     const colsCount = 3
@@ -18,7 +18,7 @@ export const MorpionPage = () => {
     return (
         <MainPage name={"morpion"}>
             <h1>Morpion</h1>
-            <Game colNumber={colsCount} rowNumber={rowsCount} players={players}/>
+            <MorpionGame colNumber={colsCount} rowNumber={rowsCount} players={players}/>
         </MainPage>
     )
 }

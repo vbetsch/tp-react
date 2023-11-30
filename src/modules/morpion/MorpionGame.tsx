@@ -1,6 +1,6 @@
-import {Board} from "./Board.tsx";
+import {MorpionBoard} from "./MorpionBoard.tsx";
 import {useState} from "react";
-import {Square} from "./Square.tsx";
+import {MorpionSquare} from "./MorpionSquare.tsx";
 
 interface GameProps {
     players: { name: string; shape: string }[];
@@ -8,7 +8,7 @@ interface GameProps {
     rowNumber: number;
 }
 
-export const Game = ({players, colNumber, rowNumber}: GameProps) => {
+export const MorpionGame = ({players, colNumber, rowNumber}: GameProps) => {
     const [indexPlayer, setIndexPlayer] = useState(0);
     const [score, setScore] = useState(generateScore());
 
@@ -42,7 +42,7 @@ export const Game = ({players, colNumber, rowNumber}: GameProps) => {
             for (let col = 0; col < colNumber; col++) {
                 const index = row * colNumber + col;
                 rowItems.push(
-                    <Square
+                    <MorpionSquare
                         key={index}
                         position={[row, col]}
                         shapePlayer={players[indexPlayer].shape}
@@ -58,7 +58,7 @@ export const Game = ({players, colNumber, rowNumber}: GameProps) => {
     return (
         <div className="game">
             <p>It is the turn of <strong>{players[indexPlayer].name}</strong> ({players[indexPlayer].shape})</p>
-            <Board squares={generateGrid()}/>
+            <MorpionBoard squares={generateGrid()}/>
         </div>
     );
 };

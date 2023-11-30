@@ -1,25 +1,27 @@
 import {useState} from "react";
 
 export interface SquareProps {
-    id: string | null
+    position: [number, number]
     shapePlayer: string
     changePlayer: () => void
+    updateScore: (colPos: number, rowPos: number, shape: string) => void
 }
 
-export const Square = ({id, shapePlayer, changePlayer}: SquareProps) => {
+export const Square = ({position, shapePlayer, changePlayer, updateScore}: SquareProps) => {
     const [enable, setEnable] = useState(false)
     const [shape, setShape] = useState("")
 
     function clickOnSquare() {
         if (!enable) {
             setShape(shapePlayer)
+            updateScore(position[0], position[1], shapePlayer)
             changePlayer()
             setEnable(true)
         }
     }
 
     return (
-        <div id={id ?? ""} className="square" onClick={() => clickOnSquare()}>
+        <div className="square" onClick={() => clickOnSquare()}>
             {enable && shape}
         </div>
     )

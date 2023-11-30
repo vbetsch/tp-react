@@ -10,6 +10,7 @@ interface GameProps {
 
 export const Game = ({players, colNumber, rowNumber}: GameProps) => {
     const [indexPlayer, setIndexPlayer] = useState(0);
+    const [score, setScore] = useState(generateScore());
 
     function nextPlayer() {
         if (indexPlayer === players.length - 1) {
@@ -17,6 +18,21 @@ export const Game = ({players, colNumber, rowNumber}: GameProps) => {
         } else {
             setIndexPlayer(indexPlayer + 1);
         }
+    }
+
+    function updateScore(colPos: number, rowPos: number, shape: string) {
+        let newScore = [...score]
+        newScore[colPos][rowPos] = shape
+        setScore(newScore)
+    }
+
+    function generateScore() {
+        const initialScore = [];
+        for (let row = 0; row < rowNumber; row++) {
+            const rowScore = Array(colNumber).fill("");
+            initialScore.push(rowScore);
+        }
+        return initialScore;
     }
 
     function generateGrid() {
@@ -28,9 +44,10 @@ export const Game = ({players, colNumber, rowNumber}: GameProps) => {
                 rowItems.push(
                     <Square
                         key={index}
-                        id={(index + 1).toString()}
+                        position={[row, col]}
                         shapePlayer={players[indexPlayer].shape}
                         changePlayer={nextPlayer}
+                        updateScore={updateScore}
                     />);
             }
             squares.push(<div className={"row"} key={row}>{rowItems}</div>);

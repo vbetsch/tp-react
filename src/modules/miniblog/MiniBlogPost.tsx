@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {MiniBlogPostType} from "./types/MiniBlogPostType.ts";
 import {MiniBlogCommentType} from "./types/MiniBlogCommentType.ts";
+import {MiniBlogComment} from "./MiniBlogComment.tsx";
 
 interface MiniBlogPostProps {
     post: MiniBlogPostType
@@ -43,7 +44,7 @@ export const MiniBlogPost = ({post}: MiniBlogPostProps) => {
             {displayComments && (
                 <div className="comments">
                     {(!loading && comments) ? comments.map((comment, key) => (
-                        <p key={key}>{comment.body}</p>
+                        <MiniBlogComment key={key} comment={comment} />
                     )) : (
                         <span>Loading...</span>
                     )}

@@ -12,14 +12,12 @@ export interface AuthState {
     users: UserSettingsUser[],
     currentUser: UserSettingsUser | undefined,
     isLoading: boolean,
-    isLogged: boolean
 }
 
 export const initialAuthState: AuthState = {
     users: [],
     currentUser: undefined,
     isLoading: false,
-    isLogged: false
 }
 
 export const UserSettingsAuthReducer = (state: AuthState, action: UserSettingsAction<AuthActionEnum>) => {

@@ -9,25 +9,32 @@ import {AuthActionEnum} from "../context/UserSettingsAuthReducer.tsx";
 export const LoginPage = () => {
     const {register, handleSubmit} = useForm<UserSettingsUser>()
     const navigate = useNavigate();
-    const {dispatch} = useContext(UserSettingsAuthContext)
+    const {state, dispatch} = useContext(UserSettingsAuthContext)
+
+    const findUser = (email: string, password: string) => state.users.find(
+        (user) =>
+            user.email === email
+            && user.password === password
+    )
 
     const onSubmit = (data: { email: string, password: string }) => {
         try {
-            const newUser: UserSettingsUser = {
-                id: 123,
-                email: data.email,
-                password: data.password,
-                firstname: "BAR",
-                lastname: "FOO"
+            if (state.users) {
+                const newUser: UserSettingsUser | undefined = findUser(data.email, data.password)
+                if (newUser) {
+                    dispatch({
+                        type: AuthActionEnum.LOGIN,
+                        payload: newUser
+                    })
+                    navigate("/usersettings")
+                } else {
+                    console.error("User not found")
+                }
+            } else {
+                console.error("No user found")
             }
-            dispatch({
-                type: AuthActionEnum.LOGIN,
-                payload: newUser
-            })
         } catch (e) {
             console.error(e)
-        } finally {
-            navigate("/usersettings")
         }
     }
 

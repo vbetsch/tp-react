@@ -52,15 +52,13 @@ export const LoginPage = () => {
                     <input
                         {...register("email", {required: true})}
                         type="email"
-                        className="email"
                         placeholder="Email"
                         required
                     />
                     <input
                         {...register("password", {required: true})}
-                        className="input"
                         type="password"
-                        placeholder="Mot de passe"
+                        placeholder="Password"
                         required
                     />
                 </div>

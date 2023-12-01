@@ -1,3 +1,42 @@
-#usersettings-page {
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
 
+form .form-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+form .form-fields input {
+    height: 20px;
+    border: none;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--grey);
+}
+form .form-fields input:focus {
+    outline: none;
+    border-color: var(--black);
+}
+
+form a {
+    text-decoration: none;
+}
+form button {
+    color: var(--black);
+    font-size: 16px;
+    background: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid var(--black);
+}
+form button:hover {
+    background-color: var(--black);
+    color: var(--white);
 }

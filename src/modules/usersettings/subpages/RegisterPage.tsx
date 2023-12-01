@@ -37,28 +37,24 @@ export const RegisterPage = () => {
                 <div className="form-fields">
                     <input
                         {...register("firstname", {required: true})}
-                        className="input"
                         type="text"
                         placeholder="First Name"
                         required
                     />
                     <input
                         {...register("lastname", {required: true})}
-                        className="input"
                         type="text"
                         placeholder="Last Name"
                         required
                     />
                     <input
                         {...register("email", {required: true})}
-                        className="input"
                         type="email"
                         placeholder="Email"
                         required
                     />
                     <input
                         {...register("password", {required: true})}
-                        className="input"
                         type="password"
                         placeholder="Password"
                         minLength={8}

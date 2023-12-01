@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
 import {UserSettingsUser} from "../types/UserSettingsUserType.ts";
 import {MainPage} from "../../../components/templates/MainPage.tsx";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {UserSettingsAuthContext} from "../context/UserSettingsAuthProvider.tsx";
 import {AuthActionEnum} from "../context/UserSettingsAuthReducer.tsx";
@@ -10,6 +10,9 @@ export const LoginPage = () => {
     const {register, handleSubmit} = useForm<UserSettingsUser>()
     const navigate = useNavigate();
     const {state, dispatch} = useContext(UserSettingsAuthContext)
+
+    console.log(`@vbetsch ||  - LoginPage || state.users`)
+    console.log(state.users)
 
     const findUser = (email: string, password: string) => state.users.find(
         (user) =>
@@ -53,12 +56,12 @@ export const LoginPage = () => {
                         {...register("password", {required: true})}
                         className="input"
                         type="password"
-                        minLength={8}
                         placeholder="Mot de passe"
                         required
                     />
                 </div>
                 <button className="button">Login</button>
+                <Link to={"/register"}>Register</Link>
             </form>
         </MainPage>
     )

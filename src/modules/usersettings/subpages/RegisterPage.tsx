@@ -2,7 +2,7 @@ import {MainPage} from "../../../components/templates/MainPage.tsx";
 import {useForm} from "react-hook-form";
 import {UserSettingsUser} from "../types/UserSettingsUserType.ts";
 import {AuthActionEnum} from "../context/UserSettingsAuthReducer.tsx";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {UserSettingsAuthContext} from "../context/UserSettingsAuthProvider.tsx";
 
@@ -25,7 +25,7 @@ export const RegisterPage = () => {
                     ...data
                 }
             })
-            navigate("/usersettings")
+            navigate("/login")
         } catch (e) {
             console.error(e)
         }
@@ -65,7 +65,8 @@ export const RegisterPage = () => {
                         required
                     />
                 </div>
-                <button className="button">Login</button>
+                <button className="button">Register</button>
+                <Link to={"/login"}>Login</Link>
             </form>
         </MainPage>
     )

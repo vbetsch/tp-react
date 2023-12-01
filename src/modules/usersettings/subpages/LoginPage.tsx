@@ -37,7 +37,7 @@ export const LoginPage = () => {
                         type: AuthActionEnum.LOGIN,
                         payload: newUser
                     })
-                    navigate("/usersettings")
+                    navigate("/")
                 }
             }
         } catch (e) {
